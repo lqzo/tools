@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <style>
+    .emoji-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .emoji-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .emoji-name {
+      font-size: 0.8em;
+      font-weight: bold;
+      word-break: break-all;
+      height: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .emoji-icon {
+      width: 40px;
+      height: 40px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .api-tip {
+      text-align: center;
+      font-size: 0.8em;
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <div class="emoji-list">
+      <% for (let emoji in emojis) { %>
+      <div class="emoji-item" data-emoji="<%= emoji %>">
+        <div class="emoji-name"><%= emoji %></div>
+        <img
+          class="emoji-icon"
+          src="<%= emojis[emoji] %>"
+          alt="<%= emoji %>"
+          title="<%= emoji %>"
+        />
+      </div>
+      <% } %>
+    </div>
+    <p class="api-tip">
+      This Emoji list is from the GitHub emojis API <%= apiLink %>
+    </p>
+  </body>
+</html>
